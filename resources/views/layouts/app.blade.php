@@ -31,6 +31,7 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
+                        @auth
                         <li class="nav-item">
                             <a href="{{ route('country.index') }}" class="nav-link">Šalys</a>
                         </li>
@@ -40,7 +41,7 @@
                         <li class="nav-item">
                             <a href="{{ route('customers.index') }}" class="nav-link">Klientai</a>
                         </li>
-
+                        @endauth
                     </ul>
 
                     <!-- Right Side Of Navbar -->
@@ -51,9 +52,11 @@
                                 <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
                             </li>
                             @if (Route::has('register'))
+                                @auth
                                 <li class="nav-item">
                                     <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
                                 </li>
+                                @endauth
                             @endif
                         @else
                             <li class="nav-item dropdown">

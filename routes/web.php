@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Auth;
 */
 
 
-
+Route::get('/', 'CountryController@index');
 Route::resource('customers', 'CustomerController');
 Route::resource('country', 'CountryController');
 Route::resource('town', 'TownController');

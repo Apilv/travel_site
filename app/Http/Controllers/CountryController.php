@@ -70,7 +70,7 @@ class CountryController extends Controller
     {
         $country->fill($request->all());
         $country->save();
-        return redirect()->route('countries.index');
+        return redirect()->route('country.index');
     }
 
     public function destroy(Country $country)

@@ -25,7 +25,9 @@
             <th>Email</th>
             <th>Telefonas</th>
             <th>Šalis</th>
+            @auth
             <th>Veikmai</th>
+            @endauth
         </tr>
         @foreach ($customers as $customer)
         <tr>
@@ -34,6 +36,7 @@
             <td>{{ $customer->email }}</td>
             <td>{{ $customer->phone }}</td>
             <td>{{ $customer->country->title }}</td>
+            @auth
             <td>
                 <form action={{ route('customers.destroy', $customer->id) }} method="POST">
                     <a class="btn btn-success" href={{ route('customers.edit', $customer->id) }}>Redaguoti</a>
@@ -41,11 +44,14 @@
                     <input type="submit" class="btn btn-danger" value="Trinti"/>
                 </form>
             </td>
+            @endauth
         </tr>
         @endforeach
     </table>
     <div>
+        @auth
         <a href="{{ route('customers.create') }}" class="btn btn-success">Pridėti</a>
+        @endauth
     </div>
 </div>
 @endsection
